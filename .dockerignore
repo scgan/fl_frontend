@@ -1,0 +1,4 @@
+.git
+node_modules
+public/pdfjs
+nginx_latest_backup.tar.gz

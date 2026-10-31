@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", "module": "ESNext", "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], "strict": true,
+    "skipLibCheck": true, "noEmit": true, "allowJs": true,
+    "baseUrl": ".", "paths": { "@/*": ["src/*"] }, "types": ["vite/client"]
+  },
+  "include": ["src/research/**/*.ts", "src/research/**/*.vue"]
+}

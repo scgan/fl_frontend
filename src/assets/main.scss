@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+/* ================================================================== *
+ * 平台统一主题：深青 #005767
+ * 1) 覆写 Element Plus 主色变量，按钮 / 链接 / 分页 / 勾选 / 聚焦态全部跟随；
+ * 2) 只在“外观层”调整（圆角、字重、高光、hover 反馈），不改任何页面布局；
+ * 3) 用 :root:root 提高优先级 —— Element 的默认蓝在构建产物里可能排在本文件之后，
+ *    只写 :root 会被它覆盖（这正是此前按钮仍是蓝色的原因）。
+ * ================================================================== */
+:root,
+:root:root {
+  --brand-primary: #005767;
+  --brand-primary-dark: #004a56;
+  --brand-primary-light: #0b6375;
+  --brand-ink: #143437;
+  --brand-muted: #5b7074;
+  --brand-line: #e8ebef;
+  --brand-soft: #eef4f5;
+
+  --el-color-primary: #005767;
+  --el-color-primary-light-3: #33798a;
+  --el-color-primary-light-5: #66a0ac;
+  --el-color-primary-light-7: #99c1c8;
+  --el-color-primary-light-8: #cce0e4;
+  --el-color-primary-light-9: #eef4f5;
+  --el-color-primary-dark-2: #004a56;
+  --el-color-primary-rgb: 0, 87, 103;
+  --el-border-radius-base: 6px;
+}
+
+/* 按钮：统一圆角与字重，保留各页原有尺寸与排布 */
+.el-button:not(.is-text):not(.is-link) {
+  border-radius: 6px;
+  font-weight: 500;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+/* 主按钮：深青实底 + 顶部柔光（高光），hover 更亮、下沉 1px */
+.el-button--primary:not(.is-text):not(.is-link):not(.is-plain) {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 14%), rgb(255 255 255 / 0%));
+  box-shadow: 0 2px 8px rgb(0 87 103 / 16%);
+}
+
+.el-button--primary:not(.is-text):not(.is-link):not(.is-plain):hover {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 22%), rgb(255 255 255 / 4%));
+  box-shadow: 0 5px 14px rgb(0 87 103 / 24%);
+}
+
+.el-button--primary:not(.is-text):not(.is-link):not(.is-plain):active {
+  background-image: none;
+  box-shadow: 0 1px 4px rgb(0 87 103 / 20%);
+}
+
+/* 线性主按钮：淡青底、深青字，与实心主按钮形成层次 */
+.el-button--primary.is-plain {
+  background-color: var(--el-color-primary-light-9);
+  border-color: var(--el-color-primary-light-7);
+  color: var(--el-color-primary-dark-2);
+}
+
+/* 文本/链接式按钮（如「详细信息」「点击查看」）：深青 + 中等字重，明确"可点" */
+.el-button.is-text:not(.is-disabled),
+.el-button.is-link:not(.is-disabled) {
+  color: var(--brand-primary);
+  font-weight: 500;
+}
+
+.el-button.is-text:not(.is-disabled):hover,
+.el-button.is-link:not(.is-disabled):hover {
+  color: var(--el-color-primary-dark-2);
+  background-color: var(--brand-soft);
+  font-weight: 600;
+}
+
+.el-button.is-link:not(.is-disabled):hover {
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 表格里的裸 <a>（编辑 / 提交审核 / 撤回审核 等）：原本是浏览器默认蓝紫色，统一成深青 */
+.el-main a,
+.el-table a {
+  color: var(--brand-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.el-main a:hover,
+.el-table a:hover {
+  color: var(--el-color-primary-dark-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.el-main a:visited,
+.el-table a:visited {
+  color: var(--brand-primary);
+}
+
+/* 功能性颜色保留（成功/警告/危险），只补一点高光，保证「颜色与功能相符」 */
+.el-button--success:not(.is-text):not(.is-link):not(.is-plain),
+.el-button--danger:not(.is-text):not(.is-link):not(.is-plain),
+.el-button--warning:not(.is-text):not(.is-link):not(.is-plain) {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 14%), rgb(255 255 255 / 0%));
+  box-shadow: 0 2px 8px rgb(16 45 45 / 12%);
+}
+
+/* 输入类控件：圆角与聚焦描边统一 */
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  border-radius: 6px;
+}
+
+/* 表格保持中性底色与常规文字色，只在 hover / 选中时用主题色点缀 */
+.el-table th.el-table__cell {
+  font-weight: 600;
+}
+
+/* 分页、标签、链接、弹窗统一 */
+.el-pagination.is-background .el-pager li.is-active {
+  background-color: var(--brand-primary);
+}
+
+.el-pagination .el-pager li:hover {
+  color: var(--brand-primary);
+}
+
+.el-tag {
+  border-radius: 6px;
+}
+
+/* 主色链接沿用主题色（这是"按钮/动作"层级，不是普通正文） */
+.el-link.el-link--primary {
+  color: var(--brand-primary);
+}
+
+.el-dialog,
+.el-message-box,
+.el-drawer {
+  border-radius: 12px;
+}
+
+/* 主色替换后，默认蓝的聚焦光晕也统一为淡青 */
+:root {
+  --el-color-primary-rgb: 0, 87, 103;
+  --el-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Microsoft YaHei', system-ui, sans-serif;
+}
+
+/* 卡片：统一圆角与边框色，页面内的自定义卡片样式仍可覆盖 */
+.el-main .el-card {
+  border-radius: 10px;
+  border-color: var(--brand-line);
+}
+
+/* 单选/复选/开关等选中态都跟随主题色 */
+.el-radio-button__original-radio:checked + .el-radio-button__inner {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  box-shadow: -1px 0 0 0 var(--brand-primary);
+}
+
+/* 标签页选中条 */
+.el-tabs__item.is-active,
+.el-tabs__item:hover {
+  color: var(--brand-primary);
+}
+
+.el-tabs__active-bar {
+  background-color: var(--brand-primary);
+}
+
+/* fade-slide */
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.3s;
+}
+
+.fade-slide-enter-from {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.fade-slide-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
+}

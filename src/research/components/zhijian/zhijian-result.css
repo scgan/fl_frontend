@@ -1,0 +1,31 @@
+/** 智鉴专业页面与 AI 内嵌结果共用的概述卡片、矩阵、结论和文献样式。 */
+.result-prose { padding: 28px 32px 50px; }
+.result-prose h2 { margin: 0 0 12px; color: #102a43; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 19px; }
+.result-prose > p { margin: 0 0 28px; color: #354a62; font-size: 12px; line-height: 1.9; }
+.object-summaries { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 30px; }
+.object-summaries section { padding: 16px; border: 1px solid #d8e1ea; }
+.object-summaries h3 { margin: 0 0 8px; color: #005767; font-size: 14px; }
+.object-summaries p { margin: 0; color: #52677e; font-size: 11px; line-height: 1.8; }
+.matrix-wrap { padding: 22px; overflow-x: auto; }
+.matrix-wrap table { width: 100%; border-collapse: collapse; color: #354a62; font-size: 10px; line-height: 1.7; }
+.matrix-wrap th, .matrix-wrap td { min-width: 140px; padding: 12px; border: 1px solid #d8e1ea; vertical-align: top; text-align: left; }
+.matrix-wrap thead th { background: #f4f7fa; color: #20364e; }
+.matrix-wrap tbody th { min-width: 110px; color: #20364e; }
+.finding-list > li > span { color: #52677e; font-weight: 700; }
+.finding-list { margin: 0; padding: 24px 34px 48px; list-style: none; }
+.finding-list li { margin-bottom: 12px; padding: 15px 16px; border-left: 3px solid #005767; background: #f7f9fb; }
+.finding-list p { margin: 0 0 7px; color: #354a62; font-size: 12px; line-height: 1.8; }
+.finding-list span { font-size: 10px; }
+.document-list li { padding: 0; }
+.document-card-button { width: 100%; padding: 15px 16px; border: 0; background: transparent; color: #354a62; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; line-height: 1.8; text-align: left; }
+.document-card-button:hover,.document-card-button:focus-visible { background: #eaf0fb; outline: 2px solid #005767; outline-offset: -2px; }
+.timeline-tab { padding: 0 22px 40px; }
+.topic-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 24px; }
+.topic-list article { padding: 16px; border: 1px solid #d8e1ea; }
+.topic-list span { color: #1b8f83; font-size: 9px; font-weight: 800; }
+.topic-list h3 { margin: 7px 0; color: #20364e; font-size: 13px; }
+.topic-list p { margin: 0; color: #52677e; font-size: 10px; line-height: 1.7; }
+.document-tab { min-height: 240px; }
+.section-empty { grid-column: 1 / -1; margin: 0; padding: 34px 22px; border: 1px dashed #cbd6e2; background: #f7f9fb; color: #7d8da0; font-size: 11px; text-align: center; }
+
+@media (max-width: 760px) { .object-summaries, .topic-list { grid-template-columns: 1fr; } }
